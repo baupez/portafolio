@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuente del Proyecto Raleway -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <title>Mi Portafolio</title>
+</head>
+
+<body>
+    <!-- Menú -->
+    <header class="cabecera">
+        <img class="cabecera__logo" src="assets/vector.png" alt="Logo">
+        <nav class="navegacion">
+            <ul class="navegacion__lista">
+                <li class="navegacion__elemento"><a href="#sobre-mi">Sobre mí</a></li>
+                <li class="navegacion__elemento"><a href="#conocimientos">Conocimientos</a></li>
+                <li class="navegacion__elemento"><a href="#proyectos">Proyectos</a></li>
+                <li class="navegacion__elemento"><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de Presentación -->
+    <section class="presentacion">
+        <img class="presentacion__foto" src="https://placehold.co/300x300/4a0d66/ffffff?text=Bautista" alt="Foto de perfil">
+        <div class="presentacion__contenedor">
+            <h2 class="presentacion__titulo">Hola, mi nombre es Bautista Lorenzo Lopez.</h2>
+            <ul class="redes">
+                <li class="redes__item"><a href="https://github.com/baupez">Github <img src="assets/arrow.png" alt="Flecha"></a></li>
+                <li class="redes__item"><a href="https://instagram.com/bautilopez._">Instagram <img src="assets/arrow.png" alt="Flecha"></a></li>
+                <li class="redes__item"><a href="Bautista.lopez3505@gmail.com">Mail <img src="assets/arrow.png" alt="Flecha"></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Sección sobre mí -->
+    <section class="sobre-mi" id="sobre-mi">
+        <h2 class="sobre-mi__titulo">Sobre mí</h2>
+        <img src="assets/profile.jpg" alt="Foto personal">
+        <p class="sobre-mi__texto">Soy estudiante en la Universidad Tecnológica Nacional (UTN) de la carrera de Técnico en Sistemas. Mi pasión por la tecnología me ha llevado a explorar diferentes áreas de la programación y el desarrollo de software.</p>
+        <p class="sobre-mi__texto">Trabajo como marinero técnico en la Armada Argentina, estoy en la división de informática del hospital naval haciendo tareas de soporte técnico. Esta experiencia me ha permitido desarrollar habilidades técnicas y de resolución de problemas en entornos demandantes.</p>
+    </section>
+
+    <!-- Sección de Conocimientos -->
+    <section class="conocimientos" id="conocimientos">
+        <h2 class="conocimientos__titulo">Conocimientos</h2>
+        <div class="conocimientos__lista">
+            <div class="conocimiento">
+                <img class="conocimiento__icono" src="assets/c++.png" alt="C++">
+                <h3>C++</h3>
+            </div>
+            <div class="conocimiento">
+                <img class="conocimiento__icono" src="assets/html.png" alt="HTML">
+                <h3>HTML</h3>
+            </div>
+            <div class="conocimiento">
+                <img class="conocimiento__icono" src="assets/css.webp" alt="CSS">
+                <h3>CSS</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Proyectos -->
+    <section class="proyectos" id="proyectos">
+        <h2 class="proyectos__titulo">Proyectos</h2>
+        <div class="proyectos__grid">
+            <div class="proyecto">
+                <img src="https://placehold.co/400x250/1e293b/38bdf8?text=Reproductor+C++" alt="Reproductor de música">
+                <h3 class="proyecto__titulo">Reproductor de música en C++</h3>
+                <p class="proyecto__descripcion">Un reproductor de música desarrollado en C++ con interfaz de línea de comandos y capacidad para reproducir formatos populares.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="contacto" id="contacto">
+        <h2 class="contacto__titulo">Contacto</h2>
+        <form class="contacto__formulario">
+            <input class="contacto__campo" type="text" placeholder="Nombre" required>
+            <input class="contacto__campo" type="email" placeholder="Correo Electrónico" required>
+            <textarea class="contacto__campo contacto__campo--textarea" placeholder="Mensaje" rows="5" required></textarea>
+            <button class="contacto__boton" type="submit">Enviar</button>
+        </form>
+    </section>
+</body>
+</html>
