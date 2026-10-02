@@ -1,0 +1,488 @@
+/* ============================================================
+   VARIABLES (paleta del portafolio de referencia)
+   ============================================================ */
+:root {
+    --color-fondo:        #0f172a;
+    --color-fondo-menu:   #1e293b;
+    --color-card:         #1e293b;
+    --color-link:         #f1f5f9;
+    --color-texto:        #f1f5f9;
+    --color-acento:       #38bdf8;
+    --color-acento-osc:   #0ea5e9;
+    --color-borde:        #334155;
+
+    --radio:   1rem;
+    --radio-sm: .5rem;
+    --max-ancho: 1100px;
+}
+
+/* ============================================================
+   RESET / BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+ol, ul, li { list-style: none; margin: 0; padding: 0; }
+
+a { color: var(--color-link); text-decoration: none; transition: color .3s; }
+a:hover { color: var(--color-acento); }
+
+img { max-width: 100%; display: block; }
+
+.seccion__titulo {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 0 0 1.5rem;
+    color: var(--color-acento);
+}
+
+.subtitulo {
+    font-size: 1.2rem;
+    margin: 2rem 0 1rem;
+    color: var(--color-acento);
+    text-align: center;
+}
+
+/* ============================================================
+   BOTONES
+   ============================================================ */
+.boton {
+    display: inline-block;
+    padding: .8rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: background .3s, color .3s, border-color .3s;
+}
+
+.boton--primario {
+    background: var(--color-acento);
+    color: #0f172a;
+}
+.boton--primario:hover {
+    background: var(--color-acento-osc);
+    color: #0f172a;
+}
+
+.boton--secundario {
+    background: transparent;
+    color: var(--color-acento);
+    border-color: var(--color-acento);
+}
+.boton--secundario:hover {
+    background: var(--color-acento);
+    color: #0f172a;
+}
+
+/* ============================================================
+   CABECERA + MENÚ HAMBURGUESA (solo CSS)
+   ============================================================ */
+.cabecera {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .8rem 1rem;
+    background: var(--color-fondo-menu);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.cabecera__nombre {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--color-texto);
+}
+
+/* Checkbox oculto */
+.cabecera__checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Ícono hamburguesa */
+.cabecera__hamburguesa {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: .4rem;
+    order: -1;
+}
+.cabecera__hamburguesa span {
+    width: 26px;
+    height: 3px;
+    background: var(--color-texto);
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s;
+}
+
+/* Menú en mobile: oculto por defecto */
+.navegacion {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-fondo-menu);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+    border-bottom: 1px solid var(--color-borde);
+}
+.navegacion__lista {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 0;
+}
+.navegacion__elemento a {
+    display: block;
+    padding: .8rem 1.2rem;
+}
+
+/* Cuando el checkbox está marcado, se abre el menú */
+.cabecera__checkbox:checked ~ .navegacion {
+    max-height: 400px;
+}
+/* Animación de la hamburguesa a X */
+.cabecera__checkbox:checked ~ .cabecera__hamburguesa span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.cabecera__checkbox:checked ~ .cabecera__hamburguesa span:nth-child(2) {
+    opacity: 0;
+}
+.cabecera__checkbox:checked ~ .cabecera__hamburguesa span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ============================================================
+   PRESENTACIÓN
+   ============================================================ */
+.presentacion {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    gap: 1rem;
+}
+
+.presentacion__marco {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    padding: 6px;
+    background: linear-gradient(135deg, var(--color-acento), var(--color-fondo-menu));
+    box-shadow: 0 0 30px rgba(56, 189, 248, .35);
+}
+.presentacion__foto {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    /* Fondo de color mientras no exista la imagen */
+    background: var(--color-card);
+}
+
+.presentacion__nombre { font-size: 2rem; margin: 0; }
+.presentacion__titulo {
+    font-size: 1.1rem;
+    color: var(--color-acento);
+    margin: 0;
+}
+.presentacion__frase {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+.presentacion__botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    justify-content: center;
+    margin-top: .5rem;
+}
+
+/* ============================================================
+   SOBRE MÍ
+   ============================================================ */
+.sobre-mi {
+    max-width: var(--max-ancho);
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+.sobre-mi__texto {
+    max-width: 750px;
+    margin: 0 auto 1rem;
+    text-align: center;
+}
+
+/* Datos rápidos */
+.datos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem auto;
+    max-width: 750px;
+}
+.datos__item {
+    background: var(--color-card);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+.datos__etiqueta {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--color-acento);
+    font-weight: 700;
+}
+.datos__valor { font-size: 1rem; }
+
+/* Timeline */
+.timeline {
+    max-width: 750px;
+    margin: 0 auto;
+    border-left: 3px solid var(--color-acento);
+    padding-left: 1.2rem;
+}
+.timeline__item {
+    position: relative;
+    padding: .5rem 0 1rem;
+}
+.timeline__item::before {
+    content: "";
+    position: absolute;
+    left: -1.55rem;
+    top: .8rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-acento);
+}
+.timeline__fecha {
+    display: block;
+    font-weight: 700;
+    color: var(--color-acento);
+}
+.timeline__descripcion { display: block; }
+
+/* ============================================================
+   CONOCIMIENTOS
+   ============================================================ */
+.conocimientos {
+    max-width: var(--max-ancho);
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    text-align: center;
+}
+.conocimientos__grupo { margin-bottom: 1.5rem; }
+.etiquetas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .6rem;
+}
+.etiqueta {
+    background: var(--color-card);
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto);
+    padding: .5rem 1rem;
+    border-radius: 2rem;
+    font-weight: 500;
+}
+
+/* ============================================================
+   PROYECTOS
+   ============================================================ */
+.proyectos {
+    max-width: var(--max-ancho);
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    text-align: center;
+}
+.proyectos__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.proyecto {
+    background: var(--color-card);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    padding: 1.2rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    transition: transform .3s, box-shadow .3s;
+}
+.proyecto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.35);
+}
+.proyecto__titulo { margin: 0; font-size: 1.15rem; }
+.proyecto__meta {
+    margin: 0;
+    font-size: .85rem;
+    color: var(--color-acento);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+.proyecto__descripcion { margin: 0; font-size: .95rem; }
+.proyecto__rol { margin: 0; font-size: .9rem; }
+.proyecto .boton { margin-top: auto; align-self: flex-start; }
+
+/* ============================================================
+   REDES
+   ============================================================ */
+.redes-seccion {
+    max-width: var(--max-ancho);
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    text-align: center;
+}
+.redes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.redes__item { display: flex; }
+.redes__enlace {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    padding: 1.2rem;
+    background: var(--color-card);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    transition: transform .3s, border-color .3s;
+}
+.redes__enlace:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-acento);
+}
+.redes__icono {
+    width: 42px;
+    height: 42px;
+    fill: var(--color-acento);
+}
+.redes__nombre { font-weight: 700; }
+
+/* ============================================================
+   CONTACTO
+   ============================================================ */
+.contacto {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    text-align: center;
+}
+.contacto__formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+.campo { display: flex; flex-direction: column; gap: .3rem; }
+.campo__label { font-weight: 700; font-size: .9rem; }
+.campo__input {
+    padding: .8rem;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-sm);
+    background: var(--color-card);
+    color: var(--color-texto);
+    font-family: inherit;
+    font-size: 1rem;
+}
+.campo__input:focus {
+    outline: 2px solid var(--color-acento);
+    border-color: var(--color-acento);
+}
+.campo__input--textarea { resize: vertical; }
+.contacto__formulario .boton { align-self: center; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.pie {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: var(--color-fondo-menu);
+    border-top: 1px solid var(--color-borde);
+    margin-top: 3rem;
+}
+.pie__texto { margin: 0; font-weight: 700; }
+.pie__detalle {
+    margin: .3rem 0 0;
+    font-size: .85rem;
+    color: var(--color-acento);
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET / DESKTOP
+   ============================================================ */
+
+/* Tablet en adelante: mostramos menú horizontal y escondemos hamburguesa */
+@media (min-width: 768px) {
+    .cabecera__hamburguesa { display: none; }
+
+    .navegacion {
+        position: static;
+        max-height: none;
+        overflow: visible;
+        background: transparent;
+        border: none;
+    }
+    .navegacion__lista {
+        flex-direction: row;
+        gap: 1rem;
+        padding: 0;
+    }
+    .navegacion__elemento a { padding: .3rem .5rem; }
+
+    .datos { grid-template-columns: 1fr 1fr; }
+
+    .proyectos__grid--destacados {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .proyectos__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Desktop grande */
+@media (min-width: 1024px) {
+    .presentacion__nombre { font-size: 2.6rem; }
+    .presentacion__titulo { font-size: 1.25rem; }
+
+    /* Con 2 destacados, mantenemos 2 columnas para que ocupen todo el ancho */
+    .proyectos__grid--destacados {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .proyectos__grid { grid-template-columns: repeat(2, 1fr); }
+
+    .datos { grid-template-columns: repeat(4, 1fr); }
+}
